@@ -1,0 +1,45 @@
+extends ./layout
+
+block content
+  .container-fluid.overflow-hidden.py-5.px-lg-0
+    h4.text-center What's Your Problem In Coding ?? Solve Your Issue here 
+    .container.contact-page.py-5.px-lg-0
+      .row.g-5.mx-lg-0
+        .col-lg-6.col-md-12.contact-form.wow.fadeIn(data-wow-delay="0.1s")
+          h6.text-secondary.text-uppercase Get In Touch
+          h1.mb-4 Contact For Any Query
+          p.mb-4 For any inquiries, feel free to reach out to us. Our team is here to assist you.
+          .bg-light.p-4
+            form#contactForm(action="/submit-form" method="POST")
+              .row.g-3
+                .col-md-6
+                  .form-floating
+                    label(for="name") Name 
+                      span.text-danger *
+                    input.form-control(type="text", id="name", name="name", placeholder="Your Name", required)
+                .col-md-6
+                  .form-floating
+                    label(for="email") Email 
+                      span.text-danger *
+                    input.form-control(type="email", id="email", name="email", placeholder="Your Email", required)
+                .col-12
+                  .form-floating
+                    label(for="subject") Service 
+                      span.text-danger *
+                    input.form-control(type="text", id="subject", name="subject", placeholder="Subject", required)
+                .col-12
+                  .form-floating
+                    label(for="phone") Phone Number 
+                      span.text-danger *
+                    input.form-control(type="number", id="phone", name="phone", placeholder="Your Phone Number", required)
+                .col-12
+                  .form-floating
+                    label(for="message") Message 
+                      span.text-danger *
+                    textarea.form-control(placeholder="Leave a message here", id="message", name="message", style="height: 100px", required)
+                    br
+                .col-12
+                  button.btn.btn-primary.w-100.py-3(type="submit") Send Message
+        .col-lg-6.col-md-12.pe-lg-0.wow.fadeInRight(data-wow-delay="0.1s")
+          .position-relative.h-100
+            img.position-absolute.w-100.h-100(style="object-fit: cover;", src="/img/contact.avif", frameborder="0", allowfullscreen="", aria-hidden="false", tabindex="0")
