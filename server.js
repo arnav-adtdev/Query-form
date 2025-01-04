@@ -34,14 +34,13 @@ app.post('/submit-form', async (req, res) => {
       service: 'gmail', // e.g., 'gmail', 'yahoo', etc.
       port: 465,
       secure:true,
-      debug: true,
-      secureConnection: false,
+      
       auth: {
         user: process.env.EMAIL_USER, // Your email
         pass: process.env.EMAIL_PASS // Your email password
       },
       tls:{
-        rejectUnauthorized: true
+        rejectUnauthorized: false
       }
     });
 
