@@ -1,11 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path'); // Add the missing 'path' module
-const mongoose = require('./db/dbconnect'); 
+const connectDB = require('./db/dbconnect');
 const Contact = require('./models/Contact');
 const nodemailer = require('nodemailer'); // Add Nodemailer
 const app = express();
-const port = 3000;
+const dotenv = require('dotenv');
+
+// Load environment variables
+dotenv.config();
+
+// Connect to the database
+connectDB();
 
 app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -68,7 +74,7 @@ app.post('/submit-form', async (req, res) => {
     `);
   }
 });
-
+const port = 3000;
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
