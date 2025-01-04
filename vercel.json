@@ -1,14 +1,8 @@
-
-
-  {
+{
     "version": 2,
     "builds": [
       {
-        "src": "views/**/*.pug",
-        "use": "@vercel/static-build"
-      },
-      {
-        "src": "/server.js",
+        "src": "server.js",
         "use": "@vercel/node"
       }
     ],
