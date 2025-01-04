@@ -34,17 +34,17 @@ app.post('/submit-form', async (req, res) => {
       debug: true,
       secureConnection: false,
       auth: {
-        user: 'arnavchaturvedi0@gmail.com', // Your email
-        pass: 'dxhx dvmq wiks qrua' // Your email password
+        user: process.env.EMAIL_USER, // Your email
+        pass: process.env.EMAIL_PASS // Your email password
       },
       tls:{
         rejectUnauthorized: true
       }
     });
 
-    const mailOptions = {
-      from: 'your-email@gmail.com',
-      to: 'arnavchaturvedi0@gmail.com', // Where you want to receive the email
+    const mailOptions = { //lagat hai ye json dataset
+      from: process.env.EMAIL_USER,
+      to: 'arnavchaturvedi0@gmail.com', // Where you want to receive the email //dynamic karo isse!
       subject: `Query Form : ${req.body.subject}`,
       text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nPhone: ${req.body.phone}\nMessage: ${req.body.message}`
     };
@@ -74,7 +74,7 @@ app.post('/submit-form', async (req, res) => {
     `);
   }
 });
-const port = 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
