@@ -1,9 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path'); // Add the missing 'path' module
+const path = require('path');
 const connectDB = require('./db/dbconnect');
 const Contact = require('./models/Contact');
-const nodemailer = require('nodemailer'); // Add Nodemailer
+const nodemailer = require('nodemailer');
 const app = express();
 const dotenv = require('dotenv');
 
@@ -19,9 +19,8 @@ app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 app.get('/', (req, res) => {
-  res.render('index'); 
+  res.render('index');
 });
 
 app.post('/submit-form', async (req, res) => {
@@ -31,24 +30,20 @@ app.post('/submit-form', async (req, res) => {
 
     // Set up Nodemailer transporter
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // e.g., 'gmail', 'yahoo', etc.
+      host: 'smtp.gmail.com',
       port: 465,
-      secure:true,
-      
+      secure: true,
       auth: {
-        user: process.env.EMAIL_USER, // Your email
-        pass: process.env.EMAIL_PASS // Your email password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
-      tls:{
-        rejectUnauthorized: false
-      }
     });
 
-    const mailOptions = { //lagat hai ye json dataset
+    const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'arnavchaturvedi0@gmail.com', // Where you want to receive the email //dynamic karo isse!
+      to: 'myfriend@yahoo.com,myotherfriend@yahoo.com',
       subject: `Query Form : ${req.body.subject}`,
-      text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nPhone: ${req.body.phone}\nMessage: ${req.body.message}`
+      text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nPhone: ${req.body.phone}\nMessage: ${req.body.message}`,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -63,7 +58,7 @@ app.post('/submit-form', async (req, res) => {
     res.send(`
       <script>
         alert('Form data has been received. Thank you!');
-        window.location.href = '/'; // Redirect to the home page or any other page
+        window.location.href = '/';
       </script>
     `);
   } catch (error) {
@@ -76,6 +71,7 @@ app.post('/submit-form', async (req, res) => {
     `);
   }
 });
+
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
