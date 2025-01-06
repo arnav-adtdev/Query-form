@@ -2,7 +2,10 @@ extends ./layout
 
 block content
   .container-fluid.overflow-hidden.py-5.px-lg-0
-    h4.text-center What's Your Problem In Coding ?? Solve Your Issue here 
+    h4.text-center 
+      | Make a Best Product From 
+      a(href="https://aasakyadigitals.com" target="_blank") Aasakya Digitals
+
     .container.contact-page.py-5.px-lg-0
       .row.g-5.mx-lg-0
         .col-lg-6.col-md-12.contact-form.wow.fadeIn(data-wow-delay="0.1s")
@@ -22,12 +25,24 @@ block content
                     label(for="email") Email 
                       span.text-danger *
                     input.form-control(type="email", id="email", name="email", placeholder="Your Email", required)
-                
+
                 .col-12
                   .form-floating
-                    label(for="subject") Service 
+                    label(for="subject") Subject 
                       span.text-danger *
                     input.form-control(type="text", id="subject", name="subject", placeholder="Subject", required)
+
+                .col-12
+                  .form-floating
+                    label(for="service") What You Want to make..
+                      span.text-danger *
+                    select.form-control(name="service", id="service", required)
+                        option(value="")  What you want to make? Select here....
+                        option(value="Website") Website 
+                        option(value="Application") Web Application 
+                        option(value="Software") Software 
+                        option(value="Digital Marketing") Digital Marketing
+
                 .col-12
                   .form-floating
                     label(for="phone") Phone Number 
@@ -45,11 +60,3 @@ block content
           .position-relative.h-100
             .position-relative.h-100.w-100.overflow-hidden 
               img.position-absolute.w-100.h-100(style="object-fit: cover;", src="/img/contact.avif", frameborder="0", allowfullscreen="", aria-hidden="false", tabindex="0")
-
-    // Adding custom styles
-    style.
-      @media (max-width: 576px) {
-        .contact-form {
-          padding: 1rem !important;
-        }
-      }

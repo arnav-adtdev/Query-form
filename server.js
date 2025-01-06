@@ -60,6 +60,10 @@ app.post('/submit-form', async (req, res) => {
             <td>${req.body.phone}</td>
           </tr>
           <tr>
+            <th>Service</th>
+            <td>${req.body.service}</td>
+          </tr>
+          <tr>
             <th>Message</th>
             <td>${req.body.message}</td>
           </tr>
