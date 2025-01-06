@@ -30,6 +30,7 @@ app.post('/submit-form', async (req, res) => {
 
     // Set up Nodemailer transporter
     const transporter = nodemailer.createTransport({
+      service: 'gmail',
       host: 'smtp.gmail.com',
       port: 465,
       secure: true,
@@ -40,7 +41,7 @@ app.post('/submit-form', async (req, res) => {
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: req.body.email,
       to: "bar@example.com, baz@example.com",
       subject: `Query Form : ${req.body.subject}`,
       text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nPhone: ${req.body.phone}\nMessage: ${req.body.message}`,
