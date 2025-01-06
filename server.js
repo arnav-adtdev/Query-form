@@ -40,9 +40,10 @@ app.post('/submit-form', async (req, res) => {
       },
     });
 
+
     const mailOptions = {
       from: req.body.email,
-      to: "bar@example.com, baz@example.com",
+      to: process.env.EMAIL_USER,
       subject: `Query Form : ${req.body.subject}`,
       text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nPhone: ${req.body.phone}\nMessage: ${req.body.message}`,
     };
