@@ -40,12 +40,31 @@ app.post('/submit-form', async (req, res) => {
       },
     });
 
-
     const mailOptions = {
-      from: req.body.email,
+      from: req.body.email, // Use the user's email address
       to: process.env.EMAIL_USER,
       subject: `Query Form : ${req.body.subject}`,
-      text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nPhone: ${req.body.phone}\nMessage: ${req.body.message}`,
+      html: `
+        <h3>Contact Form Submission</h3>
+        <table border="1" cellpadding="10" cellspacing="0">
+          <tr>
+            <th>Name</th>
+            <td>${req.body.name}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>${req.body.email}</td>
+          </tr>
+          <tr>
+            <th>Phone Number</th>
+            <td>${req.body.phone}</td>
+          </tr>
+          <tr>
+            <th>Message</th>
+            <td>${req.body.message}</td>
+          </tr>
+        </table>
+      `
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
