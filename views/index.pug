@@ -8,19 +8,19 @@ block content
 
     .container.contact-page.py-5.px-lg-0
       .row.g-5.mx-lg-0
-        .col-md-6.contact-form.wow.fadeIn(data-wow-delay="0.1s")
+        .col-lg-6.col-md-12.contact-form.wow.fadeIn(data-wow-delay="0.1s")
           h6.text-secondary.text-uppercase Get In Touch
           h1.mb-4 Contact For Any Query
           p.mb-4 For any inquiries, feel free to reach out to us. Our team is here to assist you.
-          .bg-light.p-4.form-container
+          .bg-light.p-4
             form#contactForm(action="/submit-form" method="POST")
               .row.g-3
-                .col-md-6
+                .col-md-6.col-12
                   .form-floating
                     label(for="name") Name 
                       span.text-danger *
                     input.form-control(type="text", id="name", name="name", placeholder="Your Name", required)
-                .col-md-6
+                .col-md-6.col-12
                   .form-floating
                     label(for="email") Email 
                       span.text-danger *
@@ -37,11 +37,11 @@ block content
                     label(for="service") What You Want to make..
                       span.text-danger *
                     select.form-control(name="service", id="service", required)
-                      option(value="") What you want to make? Select here....
-                      option(value="Website") Website 
-                      option(value="Application") Web Application 
-                      option(value="Software") Software 
-                      option(value="Digital Marketing") Digital Marketing
+                        option(value="")  What you want to make? Select here....
+                        option(value="Website") Website 
+                        option(value="Application") Web Application 
+                        option(value="Software") Software 
+                        option(value="Digital Marketing") Digital Marketing
 
                 .col-12
                   .form-floating
@@ -56,45 +56,16 @@ block content
                     br
                 .col-12
                   button.btn.btn-primary.w-100.py-3(type="submit") Send Message
-        .col-md-6.pe-lg-0.wow.fadeInRight(data-wow-delay="0.1s")
+        .col-lg-6.col-md-12.pe-lg-0.wow.fadeInRight(data-wow-delay="0.1s")
           .position-relative.h-100
-            img.position-absolute.w-100.h-100(style="object-fit: cover;", src="/img/contact.avif", frameborder="0", allowfullscreen="", aria-hidden="false", tabindex="0")
-
-    
-      // Google tag (gtag.js)
-      script(async, src='https://www.googletagmanager.com/gtag/js?id=G-E5SPL47DK8')
-      script.
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-E5SPL47DK8');
+            .position-relative.h-100.w-100.overflow-hidden 
+              img.position-absolute.w-100.h-100(style="object-fit: cover;", src="/img/contact.avif", frameborder="0", allowfullscreen="", aria-hidden="false", tabindex="0")
 
 
-    style. 
-      @media (max-width: 768px) {
-        .form-container {
-          height: 100% !important; 
-          min-height: 60rem !important; 
-        }
-      }
-
-      @media (max-width: 375px) {
-        .form-container {
-          padding: 20px !important; 
-          min-height: 50rem !important; 
-        }
-
-        .container.contact-page {
-          padding: 15px !important; 
-        }
-
-        .form-floating label {
-          font-size: 0.9rem !important;
-        }
-
-        .form-control, .btn {
-          font-size: 0.9rem !important; 
-        }
-      }
-
-      
+    // Google tag (gtag.js)
+    script(async, src='https://www.googletagmanager.com/gtag/js?id=G-E5SPL47DK8')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-E5SPL47DK8');
