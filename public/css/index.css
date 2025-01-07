@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+    .form-container {
+      height: 50rem; /* Adjust as needed */
+      min-height: 60rem; /* Example minimum height */
+    }
+  }
+.form-container{
+    background-color: yellow;
+}
