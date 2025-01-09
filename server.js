@@ -19,10 +19,13 @@ app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
+// app.get('/', (req, res) => {
+//   res.render('index');
+// });
 
+app.get('/', (req, res) => {
+  res.render('index1');
+});
 app.post('/submit-form', async (req, res) => {
   try {
     const contact = new Contact(req.body);
@@ -43,7 +46,7 @@ app.post('/submit-form', async (req, res) => {
     const mailOptions = {
       from: req.body.email, // Use the user's email address
       to: process.env.EMAIL_USER,
-      subject: `Query Form : ${req.body.subject}`,
+      subject: `Query Form : ${req.body.name}`,
       html: `
         <h3>Contact Form Submission</h3>
         <table border="1" cellpadding="10" cellspacing="0">
@@ -59,10 +62,7 @@ app.post('/submit-form', async (req, res) => {
             <th>Phone Number</th>
             <td>${req.body.phone}</td>
           </tr>
-          <tr>
-            <th>Service</th>
-            <td>${req.body.service}</td>
-          </tr>
+          
           <tr>
             <th>Message</th>
             <td>${req.body.message}</td>
