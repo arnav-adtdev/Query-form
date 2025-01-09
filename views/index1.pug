@@ -44,19 +44,19 @@ block content
         form(action="/submit-form" method="POST")
           h3.title Contact us
           .input-container
-            input(type="text", name="name", class="input")
+            input(type="text", name="name", class="input", required)
             label(for="") Username
             span Username
           .input-container
-            input(type="email", name="email", class="input")
+            input(type="email", name="email", class="input", required)
             label(for="") Email
             span Email
           .input-container
-            input(type="tel", name="phone", class="input")
+            input(type="tel", name="phone", class="input", required)
             label(for="") Phone
             span Phone
           .input-container.textarea
-            textarea(name="message", class="input")
+            textarea(name="message", class="input", required)
             label(for="") Message
             span Message
           input(type="submit", value="Send", class="btn")
